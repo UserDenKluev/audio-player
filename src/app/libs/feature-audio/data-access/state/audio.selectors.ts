@@ -1,7 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { COUNTER_KEY, CounterState } from './audio.reducer';
+import { AUDIO_KEY, AudioState } from './audio.reducer';
 
-export const featureSelector = createFeatureSelector<CounterState>(COUNTER_KEY);
+export const featureSelector = createFeatureSelector<AudioState>(AUDIO_KEY);
 
 export const audioListSelector = createSelector(
   featureSelector,

@@ -7,17 +7,17 @@ import {
 } from '@ngrx/store';
 import { environment } from '../../../../environments/environment';
 import {
-  COUNTER_KEY,
+  AUDIO_KEY,
   counterReducer,
-  CounterState,
+  AudioState,
 } from './state/audio.reducer';
 
 export interface State {
-  [COUNTER_KEY]: CounterState;
+  [AUDIO_KEY]: AudioState;
 }
 
 export const reducers: ActionReducerMap<State> = {
-  [COUNTER_KEY]: counterReducer,
+  [AUDIO_KEY]: counterReducer,
 };
 
 export const metaReducers: MetaReducer<State>[] = !environment.production

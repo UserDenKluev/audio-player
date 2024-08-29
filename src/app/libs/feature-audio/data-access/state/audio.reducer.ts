@@ -37,14 +37,14 @@ export type HeadersDTO = {
 
 export type TrackEntity = Pick<TrackDTO, 'id' | 'name' | 'audio'>;
 
-export const COUNTER_KEY = 'counter';
+export const AUDIO_KEY = 'audio';
 
-export interface CounterState {
+export interface AudioState {
   audioList: TrackEntity[];
   error: string | null;
 }
 
-export const initalState: CounterState = {
+export const initalState: AudioState = {
   audioList: [],
   error: null,
 };
