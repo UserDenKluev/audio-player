@@ -7,9 +7,14 @@ import * as AudioSelectors from './audio.selectors';
 export class AudioFacade {
   private readonly store = inject(Store);
 
-  public readonly audioList$ = this.store.select(AudioSelectors.audioListSelector);
+  public readonly audioList$ = this.store.select(
+    AudioSelectors.audioListSelector
+  );
+  public readonly errorAudioList$ = this.store.select(
+    AudioSelectors.errorAudioListSelector
+  );
 
-  loadFolders() {
+  public loadFolders(): void {
     this.store.dispatch(AudioActions.loadAudio());
   }
 }

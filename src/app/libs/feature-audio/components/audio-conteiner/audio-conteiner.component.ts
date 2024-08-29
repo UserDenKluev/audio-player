@@ -17,13 +17,18 @@ export class AudioConteinerComponent implements OnInit {
   private readonly audioFacade = inject(AudioFacade);
 
   public readonly audioList$ = this.audioFacade.audioList$;
+  public readonly errorAudioList$ = this.audioFacade.errorAudioList$;
 
   ngOnInit(): void {
     this.audioFacade.loadFolders();
   }
 
-  selectAudio(row: TrackEntity) {
-    this.selectedAudio = { id: row.id, name: row.name, audio: row.audio };
+  selectAudio(row: TrackEntity): void {
+    this.selectedAudio = {
+      id: row.id,
+      name: row.name,
+      audio: row.audio,
+    };
   }
 
   selectedAudio: TrackEntity = {

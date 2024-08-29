@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { loadAudioSuccess } from './audio.actions';
+import { loadAudioFailure, loadAudioSuccess } from './audio.actions';
 
 export type RootObjectDTO = {
   headers: HeadersDTO;
@@ -41,10 +41,12 @@ export const COUNTER_KEY = 'counter';
 
 export interface CounterState {
   audioList: TrackEntity[];
+  error: string | null;
 }
 
 export const initalState: CounterState = {
   audioList: [],
+  error: null,
 };
 
 export const counterReducer = createReducer(
@@ -52,5 +54,9 @@ export const counterReducer = createReducer(
   on(loadAudioSuccess, (state, { data }) => ({
     ...state,
     audioList: data,
+  })),
+  on(loadAudioFailure, (state, { error }) => ({
+    ...state,
+    error: error,
   }))
 );

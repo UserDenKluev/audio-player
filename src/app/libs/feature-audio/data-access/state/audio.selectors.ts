@@ -7,3 +7,8 @@ export const audioListSelector = createSelector(
   featureSelector,
   (state) => state.audioList
 );
+
+export const errorAudioListSelector = createSelector(
+  featureSelector,
+  (state) => state.error
+);

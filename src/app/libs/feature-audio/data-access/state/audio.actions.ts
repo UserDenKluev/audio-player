@@ -8,5 +8,5 @@ export const loadAudioSuccess = createAction(
 );
 export const loadAudioFailure = createAction(
   '[AUDIO] load audio failure',
-  props<{ error: any }>()
+  props<{ error: string }>()
 );

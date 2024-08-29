@@ -41,7 +41,7 @@ export class PlayerComponent implements OnInit {
     return this._audioData;
   }
 
-  audio = new Audio();
+  private readonly audio = new Audio();
 
   public isPlay = false;
   public isLoaded = true;
@@ -51,14 +51,14 @@ export class PlayerComponent implements OnInit {
   public timeLinePercent = 0;
   private timeCurrent = 0;
 
-  id = '';
-  title = '';
+  public id = '';
+  public title = '';
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.audio.volume = 0.5;
   }
 
-  audioUpdateHandler() {
+  audioUpdateHandler(): void {
     this.isLoaded = false;
     this.audio.play().finally(() => {
       this.isLoaded = true;
@@ -77,7 +77,7 @@ export class PlayerComponent implements OnInit {
     });
   }
 
-  playAudio() {
+  playAudio(): void {
     if (this.isPlay) {
       this.audio.pause();
       this.isPlay = !this.isPlay;
@@ -87,14 +87,14 @@ export class PlayerComponent implements OnInit {
     }
   }
 
-  setVolume(e: Event) {
+  setVolume(e: Event): void {
     const target = e.target as HTMLInputElement | null;
     if (target && this.audio) {
       this.audio.volume = target.valueAsNumber;
     }
   }
 
-  rewindAudio(e: MouseEvent) {
+  rewindAudio(e: MouseEvent): void {
     const targetElement = e.target as HTMLElement;
     const divWidth = targetElement.offsetWidth;
     const clickWidth = e.offsetX;

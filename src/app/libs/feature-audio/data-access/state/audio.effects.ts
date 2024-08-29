@@ -17,12 +17,11 @@ export class AudioEffects {
       switchMap(() =>
         apiService.getData().pipe(
           map((data: RootObjectDTO) =>{
-            // return loadAudioSuccess({ data: data.results[0].tracks })
             return loadAudioSuccess({ data: data.results[0].tracks
               .map((track) => trackDTOAdapter.DTOtoEntity(track)),})
           }
           ),
-          catchError((error: any) => {
+          catchError((error: string) => {
             return of(loadAudioFailure({ error }));
           })
         )
